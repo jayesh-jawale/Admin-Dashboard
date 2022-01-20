@@ -235,3 +235,99 @@
   justify-content: center;
   align-items: center;
 }
+
+/* Login page */
+.login-container {
+  display: flex;
+  margin: auto;
+  margin-top: 50px;
+  margin-bottom: 50px;
+  width: 65%;
+  height: 550px;
+  box-shadow: 0px 1px 3px 0px;
+}
+.login-image {
+  width: 50%;
+  background: url(https://images.unsplash.com/photo-1518020382113-a7e8fc38eac9?crop=entropy&cs=tinysrgb&fit=crop&fm=jpg&h=800&ixid=MnwxfDB8MXxyYW5kb218MHx8fHx8fHx8MTY0MDM4NTY1Mw&ixlib=rb-1.2.1&q=80&utm_campaign=api-credit&utm_medium=referral&utm_source=unsplash_source&w=600);
+  background-position: center;
+  background-size: cover;
+}
+.login-details {
+  width: 50%;
+  padding: 10px;
+}
+.input-fields {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.email-field {
+  border-radius: 10rem;
+  padding: 1rem 1rem;
+  width: 80%;
+  margin-bottom: 1rem;
+}
+.login-buttons {
+  border-radius: 10rem;
+  padding: 1rem 1rem;
+  width: 80%;
+  margin-bottom: 1rem;
+}
+.login {
+  background-color: #4e73df;
+  border-color: #4e73df;
+}
+.login-with-google {
+  background-color: #ea4335;
+  border-color: #ea4335;
+}
+.login-with-facebook {
+  background-color: #3b5998;
+  border-color: #3b5998;
+}
+
+/* Create account page */
+.create-account-container {
+  display: flex;
+  margin: auto;
+  margin-top: 50px;
+  margin-bottom: 50px;
+  width: 65%;
+  height: 565px;
+  box-shadow: 0px 1px 3px 0px;
+}
+.create-account-image {
+  width: 50%;
+  background: url(https://images.unsplash.com/photo-1517849845537-4d257902454a?crop=entropy&cs=tinysrgb&fit=crop&fm=jpg&h=800&ixid=MnwxfDB8MXxyYW5kb218MHx8fHx8fHx8MTY0MDM4MDE5OQ&ixlib=rb-1.2.1&q=80&utm_campaign=api-credit&utm_medium=referral&utm_source=unsplash_source&w=600);
+  background-position: center;
+  background-size: cover;
+}
+.create-account-details {
+  width: 50%;
+  padding: 10px;
+}
+.create-form {
+  display: block;
+  margin-top: 1rem;
+}
+.name-input-fields {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-evenly;
+}
+.input-names {
+  border-radius: 10rem;
+  padding: 1rem 1rem;
+  width: 30%;
+  margin-bottom: 1rem;
+}
+.email-input-field {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.password-input-fields {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-evenly;
+}
