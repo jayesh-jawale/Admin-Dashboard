@@ -3,9 +3,6 @@ import List from '@mui/material/List';
 import ListItemButton from '@mui/material/ListItemButton';
 import ListItemIcon from '@mui/material/ListItemIcon';
 import ListItemText from '@mui/material/ListItemText';
-import Collapse from '@mui/material/Collapse';
-import ExpandLess from '@mui/icons-material/ExpandLess';
-import ExpandMore from '@mui/icons-material/ExpandMore';
 import SentimentVerySatisfiedIcon from '@mui/icons-material/SentimentVerySatisfied';
 import DashboardIcon from '@mui/icons-material/Dashboard';
 import Typography from '@mui/material/Typography';
@@ -16,41 +13,46 @@ import FolderOpenIcon from '@mui/icons-material/FolderOpen';
 import InsertChartIcon from '@mui/icons-material/InsertChart';
 import TableChartIcon from '@mui/icons-material/TableChart';
 
-export function PanelList() {
-    const [open, setOpen] = useState(false);
-  
-    const handleClick = () => {
-      setOpen(!open);
-    };
-  
+import Accordion from '@mui/material/Accordion';
+import AccordionSummary from '@mui/material/AccordionSummary';
+import AccordionDetails from '@mui/material/AccordionDetails';
+import ExpandMoreIcon from '@mui/icons-material/ExpandMore';
+import { ListItem } from '@mui/material';
+import { Link, useHistory } from 'react-router-dom';
+
+export function PanelList() {  
     const dropdownBox = {
       backgroundColor: 'white',
       color: 'black',
       margin: '10px',
       display: 'flex',
       flexDirection: 'column',
-      alignItems: 'flex-start',
       alignContent: 'center',
       justifyContent: 'center',
     }
+
+    const history = useHistory();
   
     return ( 
-      <div className='panel-list'>
-        <ListItemButton>
-          <ListItemIcon>
-          <SentimentVerySatisfiedIcon />
-          </ListItemIcon>
-          <ListItemText primary="SB ADMIN" />
-        </ListItemButton>
-  
+      <div className='panel-list'>       
+      <List style={{backgroundColor: "rgb(93, 130, 209)"}}>
+
+        <ListItem className='panel-list-icons'>
+        <SentimentVerySatisfiedIcon />
+          <span style={{fontWeight: '700', letterSpacing: '.05rem', marginBottom: '20px'}}>
+             SB ADMIN
+          </span>
+        </ListItem>
+     
         <Divider variant="fullWidth" />
-  
-        <ListItemButton>
-          <ListItemIcon>
-          <DashboardIcon />
-          </ListItemIcon>
-          <ListItemText primary="Dashboard" />
-        </ListItemButton>
+
+      <ListItem className='panel-list-icons'>
+        <DashboardIcon />
+          {/* <span><Link to="/dashboard">Dashboard</Link></span> */}
+          <Link to="/dashboard">
+            <span>Dashboard</span>
+          </Link>
+      </ListItem>
   
         <Divider variant="fullWidth" />
   
@@ -59,65 +61,44 @@ export function PanelList() {
           variant="caption" display="block" gutterBottom>
           INTERFACE
         </Typography>
-        <ListItemButton onClick={handleClick}>
-          <ListItemIcon>
+
+        <Accordion style={{backgroundColor: "rgb(93, 130, 209)"}}>
+        <AccordionSummary
+          expandIcon={<ExpandMoreIcon />}
+          aria-controls="panel1a-content"
+          id="panel1a-header">
+          <Typography className='panel-list-icons'>
           <SettingsIcon />
-          </ListItemIcon>
-          <ListItemText primary="Components" />
-          {open ? <ExpandLess /> : <ExpandMore />}
-        </ListItemButton>
-        <Collapse in={open} timeout="auto" unmountOnExit>
-          <List style={dropdownBox} component="div" disablePadding>
-          <Typography style={{marginLeft: '60px', color: 'grey'}} variant="caption" display="block" gutterBottom>
-          CUSTOM COMPONENTS:
-        </Typography>
-            <ListItemButton>
-              <ListItemIcon>
-              </ListItemIcon>
-              <ListItemText primary="Buttons" />
-            </ListItemButton>
-            <ListItemButton>
-              <ListItemIcon>
-              </ListItemIcon>
-              <ListItemText primary="Cards" />
-            </ListItemButton>
-          </List>
-        </Collapse>
+           <span>Components</span>
+          </Typography>
+        </AccordionSummary>
+        <AccordionDetails>
+        <List style={dropdownBox}>
+							<ListItemButton>Buttons</ListItemButton>
+							<ListItemButton>Cards</ListItemButton>
+				</List>
+        </AccordionDetails>
+      </Accordion>
   
-        <ListItemButton onClick={handleClick}>
-          <ListItemIcon>
+      <Accordion style={{backgroundColor: "rgb(93, 130, 209)"}}>
+        <AccordionSummary
+          expandIcon={<ExpandMoreIcon />}
+          aria-controls="panel1a-content"
+          id="panel1a-header">
+          <Typography className='panel-list-icons'>
           <BuildIcon />
-          </ListItemIcon>
-          <ListItemText primary="Utilities" />
-          {open ? <ExpandLess /> : <ExpandMore />}
-        </ListItemButton>
-        <Collapse in={open} timeout="auto" unmountOnExit>
-          <List style={dropdownBox} component="div" disablePadding>
-          <Typography style={{marginLeft: '60px', color: 'grey'}} variant="caption" display="block" gutterBottom>
-          CUSTOM UTILITIES:
-        </Typography>
-            <ListItemButton>
-              <ListItemIcon>
-              </ListItemIcon>
-              <ListItemText primary="Colors" />
-            </ListItemButton>
-            <ListItemButton>
-              <ListItemIcon>
-              </ListItemIcon>
-              <ListItemText primary="Borders" />
-            </ListItemButton>
-            <ListItemButton>
-              <ListItemIcon>
-              </ListItemIcon>
-              <ListItemText primary="Animations" />
-            </ListItemButton>
-            <ListItemButton>
-              <ListItemIcon>
-              </ListItemIcon>
-              <ListItemText primary="Others" />
-            </ListItemButton>
-          </List>
-        </Collapse>
+            <span>Custom Utilities</span>
+          </Typography>
+        </AccordionSummary>
+        <AccordionDetails>
+        <List style={dropdownBox}>
+							<ListItemButton>Color</ListItemButton>
+							<ListItemButton>Borders</ListItemButton>
+              <ListItemButton>Animations</ListItemButton>
+							<ListItemButton>Other</ListItemButton>
+						</List>
+        </AccordionDetails>
+      </Accordion>
   
         <Divider variant="fullWidth" />
   
@@ -126,65 +107,44 @@ export function PanelList() {
          variant="caption" display="block" gutterBottom>
           ADDSON
         </Typography>
-        <ListItemButton onClick={handleClick}>
-          <ListItemIcon>
+
+        <Accordion style={{backgroundColor: "rgb(93, 130, 209)"}}>
+        <AccordionSummary
+          expandIcon={<ExpandMoreIcon />}
+          aria-controls="panel1a-content"
+          id="panel1a-header">
+          <Typography className='panel-list-icons'>
           <FolderOpenIcon />
-          </ListItemIcon>
-          <ListItemText primary="Pages" />
-          {open ? <ExpandLess /> : <ExpandMore />}
-        </ListItemButton>
+            <span>Pages</span>
+          </Typography>
+        </AccordionSummary>
+        <AccordionDetails>
+        <List style={dropdownBox}>
+							<ListItemButton>Login</ListItemButton>
+							<ListItemButton>Register</ListItemButton>
+              <ListItemButton>Forgot Password</ListItemButton>
+						</List>
+        </AccordionDetails>
+      </Accordion>
+
+      <ListItem className='panel-list-icons'>
+        <InsertChartIcon />
+          {/* <span>Charts</span> */}
+          <Link to="/charts">
+            <span>Charts</span>
+          </Link>
+      </ListItem>
+
+      <ListItem className='panel-list-icons'>
+        <TableChartIcon />
+          {/* <span> Tables</span> */}
+          <Link to="/tables">
+            <span>Tables</span>
+          </Link>
+      </ListItem>
   
-        <Collapse in={open} timeout="auto" unmountOnExit>
-          <List style={dropdownBox} component="div" disablePadding>
-          <Typography style={{marginLeft: '60px', color: 'grey'}} variant="caption" display="block" gutterBottom>
-          LOGIN SCREENS:
-        </Typography>
-            <ListItemButton>
-              <ListItemIcon>
-              </ListItemIcon>
-              <ListItemText primary="Login" />
-            </ListItemButton>
-            <ListItemButton>
-              <ListItemIcon>
-              </ListItemIcon>
-              <ListItemText primary="Register" />
-            </ListItemButton>
-            <ListItemButton>
-              <ListItemIcon>
-              </ListItemIcon>
-              <ListItemText primary="Forgot Password" />
-            </ListItemButton>
-            <Typography style={{marginLeft: '60px', color: 'grey'}} variant="caption" display="block" gutterBottom>
-          OTHER PAGES
-        </Typography>
-        <ListItemButton>
-              <ListItemIcon>
-              </ListItemIcon>
-              <ListItemText primary="404 Page" />
-            </ListItemButton>
-            <ListItemButton>
-              <ListItemIcon>
-              </ListItemIcon>
-              <ListItemText primary="Blank Page" />
-            </ListItemButton>
-          </List>
-        </Collapse>
-  
-        <ListItemButton>
-          <ListItemIcon>
-          <InsertChartIcon />
-          </ListItemIcon>
-          <ListItemText primary="Charts" />
-        </ListItemButton>
-  
-        <ListItemButton>
-          <ListItemIcon>
-          <TableChartIcon />
-          </ListItemIcon>
-          <ListItemText primary="Tables" />
-        </ListItemButton>
-  
-        <Divider variant="fullWidth" />
+      <Divider variant="fullWidth" />
+        </List>
       </div>
     );
   }

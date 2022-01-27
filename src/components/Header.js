@@ -71,9 +71,10 @@ export function Header() {
   };
   
     return (
+      <div className='header-list svg'>
       <Box>
       <AppBar position="static">
-        <Toolbar>
+        <Toolbar style={{color: 'black', backgroundColor: 'white'}}>
           <Search>
           <SearchIconWrapper>
                 <SearchIcon />
@@ -81,6 +82,7 @@ export function Header() {
             <StyledInputBase
               placeholder="Search…"
               inputProps={{ 'aria-label': 'search' }}
+              style={{border: '2px solid blue', borderRadius: '15px', width: '100%'}} 
             />
           </Search>
   
@@ -135,5 +137,6 @@ export function Header() {
         </Toolbar>
       </AppBar>
     </Box>
+  </div>
     );
   }

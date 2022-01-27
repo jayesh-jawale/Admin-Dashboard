@@ -17,7 +17,7 @@ export function GenerateReports() {
     return (
     <div>
     <div style={styles}>
-       <h2 style={{fontFamily: 'Cursive'}}>Dashboard</h2>
+       <h1 style={{lineHeight: "1.2", fontWeight: '400'}}>Dashboard</h1>
        <Button style={{fontSize: '.875rem', borderRadius: '0.2rem'}} variant="contained">
        <FileDownloadIcon/>
         Generate Report
