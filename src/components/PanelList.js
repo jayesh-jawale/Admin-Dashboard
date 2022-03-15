@@ -1,8 +1,5 @@
-import { useState } from 'react';
 import List from '@mui/material/List';
 import ListItemButton from '@mui/material/ListItemButton';
-import ListItemIcon from '@mui/material/ListItemIcon';
-import ListItemText from '@mui/material/ListItemText';
 import SentimentVerySatisfiedIcon from '@mui/icons-material/SentimentVerySatisfied';
 import DashboardIcon from '@mui/icons-material/Dashboard';
 import Typography from '@mui/material/Typography';
@@ -18,7 +15,7 @@ import AccordionSummary from '@mui/material/AccordionSummary';
 import AccordionDetails from '@mui/material/AccordionDetails';
 import ExpandMoreIcon from '@mui/icons-material/ExpandMore';
 import { ListItem } from '@mui/material';
-import { Link, useHistory } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 
 export function PanelList() {  
     const dropdownBox = {
@@ -30,8 +27,6 @@ export function PanelList() {
       alignContent: 'center',
       justifyContent: 'center',
     }
-
-    const history = useHistory();
   
     return ( 
       <div className='panel-list'>       
